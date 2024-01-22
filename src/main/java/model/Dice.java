@@ -2,11 +2,11 @@ package model;
 
 import java.util.Random;
 
-public class Die extends Article{
+public class Dice extends Article{
     protected int[] faces;
     private static Random rd;
 
-    public Die(int price, String name, int[] faces){
+    public Dice(int price, String name, int[] faces){
         super(price, name);
         this.faces = faces.clone();
         rd = new Random();

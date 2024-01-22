@@ -1,4 +1,4 @@
-package model;
+package model.entityAssets;
 
 public class Buff {
     protected int tag;

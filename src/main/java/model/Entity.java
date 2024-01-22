@@ -1,5 +1,7 @@
 package model;
 
+import model.entityAssets.Health;
+
 public class Entity {
     protected Health stats;
     public String name;
