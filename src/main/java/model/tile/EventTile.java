@@ -1,13 +1,20 @@
 package model.tile;
 
-public class EventTile extends Tile{
-    public EventTile(){
-        super("Event", 0.2);
-    }
+public class EventTile implements Tile{
 
     @Override
     public void doTile() {
                 
+    }
+
+    @Override
+    public String getName() {
+        return "Event";
+    }
+
+    @Override
+    public int getRarity() {
+        return 10;
     }
 
 }
