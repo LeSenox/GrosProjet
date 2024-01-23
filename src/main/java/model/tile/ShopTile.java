@@ -1,5 +1,7 @@
 package model.tile;
 
+import java.awt.Color;
+
 public class ShopTile implements Tile{
     @Override
     public void doTile() {
@@ -14,6 +16,11 @@ public class ShopTile implements Tile{
     @Override
     public int getRarity() {
         return 10;
+    }
+       
+    @Override
+    public Color getColor(){
+        return Color.GREEN;
     }
 
 }

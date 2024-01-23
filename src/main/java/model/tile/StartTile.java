@@ -1,5 +1,7 @@
 package model.tile;
 
+import java.awt.Color;
+
 public class StartTile implements Tile {
 
     @Override
@@ -15,6 +17,11 @@ public class StartTile implements Tile {
     @Override
     public void doTile() {
         System.out.println("start");
+    }
+
+    @Override
+    public Color getColor(){
+        return Color.WHITE;
     }
     
 }

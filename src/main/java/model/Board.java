@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import model.tile.ShopTile;
 import model.tile.StartTile;
 import model.tile.Tile;
 import utils.Subject;
@@ -33,7 +34,7 @@ public class Board extends Subject{
         pos = createPathToPointV2(pos, getCorner(false, false));
         pos = createPathToPointV2(pos, new Coordinate(0, 0));
         pos.nextTiles = new Coordinate[]{new Coordinate(0,0)};
-        tiles.put(pos, new StartTile());
+        tiles.put(pos, new ShopTile());
 
     }
 
