@@ -1,8 +1,7 @@
-import model.Board;
+import view.BoardView;
 
 public class Main {
     public static void main(String[] args) {
-        Board b = new Board();
-        b.generateBoard();
+        new BoardView();
     }
 }

@@ -4,7 +4,7 @@ public class EventTile implements Tile{
 
     @Override
     public void doTile() {
-                
+        
     }
 
     @Override
