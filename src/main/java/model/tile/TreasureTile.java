@@ -16,7 +16,7 @@ public class TreasureTile implements Tile{
 
     @Override
     public int getRarity() {
-        return 20;
+        return 10;
     }
 
     @Override

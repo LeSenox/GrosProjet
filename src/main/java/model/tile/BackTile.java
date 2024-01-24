@@ -2,23 +2,22 @@ package model.tile;
 
 import java.awt.Color;
 
-public class EventTile implements Tile{
-
+public class BackTile implements Tile{
     @Override
     public void doTile() {
-        
+                
     }
 
     @Override
     public String getName() {
-        return "Event";
+        return "Back";
     }
 
     @Override
     public int getRarity() {
-        return 15;
+        return 10;
     }
-
+       
     @Override
     public Color getColor(){
         return Color.BLUE;

@@ -13,7 +13,7 @@ import model.tile.Tile;
 
 public class BoardCanvas extends JPanel{
     protected Board boardounet;
-    private static final int TILE_SIZE = 40;
+    private static final int TILE_SIZE = 30;
     
     public BoardCanvas(Board board){
         boardounet = board;
@@ -52,11 +52,20 @@ public class BoardCanvas extends JPanel{
 
     public void paintTile(Graphics g, Coordinate c, int i){
         g.setColor(Color.GREEN);
-        int xPos = getWidth()/2 + (int)(c.x * TILE_SIZE * 1.2); 
-        int yPos = getHeight()/2 + (int)(c.y * TILE_SIZE * 1.2);
+        int xPos = (getWidth() - getCanvasWidth()) / 2 + (int)(c.x * TILE_SIZE * 1.2); 
+        int yPos = (getHeight() - getCanvasHeight()) / 2 + (int)(c.y * TILE_SIZE * 1.2);
         g.fillRect(xPos, yPos, TILE_SIZE, TILE_SIZE);
         g.setColor(Color.BLACK);
         g.drawString(i + "", xPos, yPos + TILE_SIZE);
+    }
+
+    private int getCanvasWidth(){
+        return 0;
+        //return total * TILE_SIZE * 1.2;
+    }
+
+    private int getCanvasHeight(){
+        return 0;
     }
 
     

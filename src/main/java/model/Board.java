@@ -7,6 +7,7 @@ import java.util.Random;
 import model.tile.ShopTile;
 import model.tile.StartTile;
 import model.tile.Tile;
+import model.tile.TileFactory;
 import utils.Subject;
 
 public class Board extends Subject{
@@ -38,13 +39,25 @@ public class Board extends Subject{
 
     }
 
+    public void generateBoardV3(){
+        TilePos pos = new TilePos(0,0);
+        pos = createPathToPointV2(pos, getCorner(true, true));
+        pos = createPathToPointV2(pos, new Coordinate(4, -3));
+        pos = createPathToPointV2(pos, getCorner(false, true));
+        pos = createPathToPointV2(pos, new Coordinate(4, 3));
+        pos = createPathToPointV2(pos, getCorner(false, false));
+        pos = createPathToPointV2(pos, new Coordinate(0, 0));
+        pos.nextTiles = new Coordinate[]{new Coordinate(0,0)};
+        tiles.put(pos, TileFactory.createTile());
+    }
+
     public TilePos createPathToPointV2(TilePos pos, Coordinate point){
         Coordinate c = pos;
         while(!(c = c.towardCoordinate(point)).equals(point)){
             if(!tiles.containsKey(c)){
                 pos.nextTiles = new Coordinate[]{c};
                 System.out.println(pos.toString());
-                tiles.put(pos, new StartTile());
+                tiles.put(pos, TileFactory.createTile());
                 pos = new TilePos(c);
             }
         }
@@ -69,7 +82,7 @@ public class Board extends Subject{
 
     public void generateBoard(){
         Coordinate pos = new Coordinate(0,0);
-        tiles.put(pos, new StartTile());
+        tiles.put(pos, TileFactory.createTile());
         pos = createPathToPoint(pos, getCorner(true, true));
         pos = createPathToPoint(pos, getCorner(false, true));
         pos = createPathToPoint(pos, getCorner(false, false));
@@ -82,7 +95,7 @@ public class Board extends Subject{
         Coordinate c = pos.clone();
         while(!(c = c.towardCoordinate(point)).equals(point)){
             if(!tiles.containsKey(c)){
-                tiles.put(c, new StartTile());
+                tiles.put(c, TileFactory.createTile());
             }
         }
         tiles.put(c, new StartTile());

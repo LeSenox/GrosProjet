@@ -27,7 +27,7 @@ public class BoardView extends JFrame implements Observer{
         setLocation(center());
         setTitle("Dice Dungeon");
         Board b = new Board();
-        b.generateBoardV2();
+        b.generateBoardV3();
         add(new BoardCanvas(b));
         setVisible(true);
     }

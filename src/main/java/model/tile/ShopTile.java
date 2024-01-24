@@ -15,7 +15,7 @@ public class ShopTile implements Tile{
 
     @Override
     public int getRarity() {
-        return 10;
+        return 20;
     }
        
     @Override
