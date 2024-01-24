@@ -42,9 +42,8 @@ public class Board extends Subject{
     public void generateBoardV3(){
         TilePos pos = new TilePos(0,0);
         pos = createPathToPointV2(pos, getCorner(true, true));
-        pos = createPathToPointV2(pos, new Coordinate(4, -3));
+        pos = createPathToPointV2(pos, new Coordinate(10, 20));        
         pos = createPathToPointV2(pos, getCorner(false, true));
-        pos = createPathToPointV2(pos, new Coordinate(4, 3));
         pos = createPathToPointV2(pos, getCorner(false, false));
         pos = createPathToPointV2(pos, new Coordinate(0, 0));
         pos.nextTiles = new Coordinate[]{new Coordinate(0,0)};
