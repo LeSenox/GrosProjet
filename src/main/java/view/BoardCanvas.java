@@ -36,7 +36,7 @@ public class BoardCanvas extends JPanel{
         */
 
         for(Entry<Coordinate, Tile> e : boardounet.tiles.entrySet()){
-            paintTile(g, e.getKey(), e.getValue());
+            paintCircle(g, e.getKey(), e.getValue());
         }
     }
 
@@ -47,7 +47,15 @@ public class BoardCanvas extends JPanel{
         g.fillRect(xPos-2, yPos-2, TILE_SIZE+4, TILE_SIZE+4);
         g.setColor(t.getColor());
         g.fillRect(xPos, yPos, TILE_SIZE, TILE_SIZE);
+    }
+
+    public void paintCircle(Graphics g, Coordinate c, Tile t){
+        int xPos = getWidth()/2 + (int)(c.x * TILE_SIZE * 1.2); 
+        int yPos = getHeight()/2 + (int)(c.y * TILE_SIZE * 1.2);
         g.setColor(Color.BLACK);
+        g.fillOval(xPos-2, yPos-2, TILE_SIZE+4, TILE_SIZE+4);
+        g.setColor(t.getColor());
+        g.fillOval(xPos, yPos, TILE_SIZE, TILE_SIZE);
     }
 
     public void paintTile(Graphics g, Coordinate c, int i){
