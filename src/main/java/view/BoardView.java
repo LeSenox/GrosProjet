@@ -6,6 +6,9 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 import model.Board;
+import model.Coordinate;
+import model.Game;
+import model.tile.Tile;
 import utils.Observer;
 import utils.Subject;
 import java.awt.Point;
@@ -22,25 +25,27 @@ public class BoardView extends JFrame implements Observer{
         return new Point((SCREEN_WIDTH - getWidth()) / 2, (SCREEN_HEIGHT - getHeight()) / 2);
     }
 
-    public BoardView(){
+    public BoardView(Game game){
         setSize(WIDTH,HEIGHT);
         setLocation(center());
         setTitle("Dice Dungeon");
-        Board b = new Board();
-        b.generateBoardV3();
-        add(new BoardCanvas(b));
+        game.attach(this);
+        add(new BoardCanvas(game.board));
         setVisible(true);
     }
 
     @Override
-    public void update(Subject arg0) {
+    public void update(Subject game) {
         repaint();
     }
 
     @Override
-    public void update(Subject arg0, Object arg1) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public void update(Subject game, Object data) {
+        if(data instanceof Coordinate){
+            
+        }else if(data instanceof Tile){
+            repaint();
+        }
     }
 
 

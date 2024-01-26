@@ -3,29 +3,46 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Map.Entry;
 
 import model.tile.ShopTile;
 import model.tile.StartTile;
 import model.tile.Tile;
 import model.tile.TileFactory;
-import utils.Subject;
 
-public class Board extends Subject{
+public class Board{
     public static final int DEFAULTBOARDSIZE = 8;
 
     public int length;
-    public int width;
+    public int height;
     public Map<Coordinate,Tile> tiles;
     private static Random random = new Random();
 
-    public Board(int length, int width){
+    public Board(int length, int height){
         this.length = length;
-        this.width = width;
+        this.height = height;
         tiles = new HashMap<>();
+        generateBoardV3();
+        getDimensions();
     }
 
     public Board(){
         this(DEFAULTBOARDSIZE, DEFAULTBOARDSIZE);
+    }
+
+    public void getDimensions(){
+        int maxX = 0;
+        int maxY = 0;
+        int minX = 0;
+        int minY = 0;
+        for(Entry<Coordinate, Tile> t : tiles.entrySet()){
+            if(t.getKey().x > maxX) maxX = t.getKey().x;
+            if(t.getKey().y > maxY) maxY = t.getKey().y;
+            if(t.getKey().x < minX) minX = t.getKey().x;
+            if(t.getKey().y < minY) minY = t.getKey().y;
+        }
+        length = maxX - minX;
+        height = maxY - minY;
     }
 
     public void generateBoardV2(){
@@ -69,7 +86,7 @@ public class Board extends Subject{
 
     public Coordinate getCorner(boolean onTop, boolean onRight){
         int x = onRight ? random.nextInt(length, length + 1) : random.nextInt(-1, 0);
-        int y = onTop ? random.nextInt(-1, 0) : random.nextInt(width, width + 1);
+        int y = onTop ? random.nextInt(-1, 0) : random.nextInt(height, height + 1);
         return new Coordinate(x, y);
     }
 

@@ -1,7 +1,11 @@
+import model.Board;
+import model.Game;
 import view.BoardView;
 
 public class Main {
     public static void main(String[] args) {
-        new BoardView();
+        Board b = new Board();
+        Game g = new Game(b);
+        new BoardView(g);
     }
 }

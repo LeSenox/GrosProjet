@@ -68,12 +68,12 @@ public class BoardCanvas extends JPanel{
     }
 
     private int getCanvasWidth(){
-        return 0;
+        return (int)(boardounet.length * TILE_SIZE * 1.2);
         //return total * TILE_SIZE * 1.2;
     }
 
     private int getCanvasHeight(){
-        return 0;
+        return (int)(boardounet.height * TILE_SIZE * 1.2);
     }
 
     
