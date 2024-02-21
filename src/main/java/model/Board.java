@@ -66,6 +66,8 @@ public class Board{
         pos = createPathToPointV2(pos, new Coordinate(3, 4));        
 
         pos = createPathToPointV2(pos, getCorner(false, false));
+        pos = createPathToPointV2(pos, new Coordinate(-3, 4));        
+
         pos = createPathToPointV2(pos, new Coordinate(0, 0));
         pos.nextTiles = new Coordinate[]{new Coordinate(0,0)};
         tiles.put(pos, TileFactory.createTile());
@@ -77,7 +79,10 @@ public class Board{
             if(!tiles.containsKey(c)){
                 pos.nextTiles = new Coordinate[]{c};
                 System.out.println(pos.toString());
-                tiles.put(pos, TileFactory.createTile());
+                if(pos.x == 0 && pos.y == 0){
+                    tiles.put(pos, new StartTile());
+                }
+                else tiles.put(pos, TileFactory.createTile());
                 pos = new TilePos(c);
             }
         }

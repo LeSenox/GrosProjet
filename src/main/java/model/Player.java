@@ -6,4 +6,9 @@ public class Player extends Entity {
         super(name, money, hp, def, bravery);
     }
 
+    @Override
+    public Dice chooseDice() {
+        return diceDeck[0];
+    }
+
 }

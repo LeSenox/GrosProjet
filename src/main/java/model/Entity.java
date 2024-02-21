@@ -2,7 +2,7 @@ package model;
 
 import model.entityAssets.Health;
 
-public class Entity {
+public abstract class Entity {
     public static final int DEFAULT_DECK_SIZE = 3;
     protected Health stats;
     public String name;
@@ -19,4 +19,6 @@ public class Entity {
     public Entity(String name, int money, int hp, int def, int bravery){
         this(name, money, hp, def, bravery, DEFAULT_DECK_SIZE);
     }
+
+    public abstract Dice chooseDice();
 }
